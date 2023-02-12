@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yalla/theme.dart';
+import 'package:yalla/pages/sign_in_page.dart';
+import 'package:yalla/pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,25 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'hello',
-          style: kSecondaryTextStyle,
-        ),
-      ),
+      initialRoute: SplashPage.id,
+      routes: {
+        SplashPage.id: (context) => const SplashPage(),
+        SignInPage.id: (context) => const SignInPage(),
+      },
     );
   }
 }
