@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/auth_button.dart';
 import 'package:yalla/components/auth_footer.dart';
 import 'package:yalla/components/auth_header.dart';
-import 'package:yalla/pages/sign_up_page.dart';
+import 'package:yalla/pages/sign_in_page.dart';
 import 'package:yalla/theme.dart';
 import 'package:yalla/components/auth_input.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
-  static const String id = 'sign_in_page';
+  static const String id = 'sign_up_page';
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +29,28 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const AuthHeader(title: 'Login', subTitle: 'Sign In to Continue'),
+              const AuthHeader(
+                  title: 'Sign Up', subTitle: 'Register and Happy Shopping'),
               //
               const SizedBox(height: 70),
+              //
+              const AuthInput(
+                title: 'Full Name',
+                hint: 'Enter your full name',
+                icon: 'name',
+                isPassword: false,
+              ),
+              //
+              const SizedBox(height: 20),
+              //
+              const AuthInput(
+                title: 'Username',
+                hint: 'Enter your username',
+                icon: 'username',
+                isPassword: false,
+              ),
+              //
+              const SizedBox(height: 20),
               //
               const AuthInput(
                 title: 'Email Address',
@@ -51,15 +70,15 @@ class _SignInPageState extends State<SignInPage> {
               //
               const SizedBox(height: 30),
               //
-              const AuthButton(text: 'Sign In'),
+              const AuthButton(text: 'Sign Up'),
               //
               const Spacer(),
               //
               AuthFooter(
-                text: 'Don\'t have an Account? ',
-                textLink: 'Sign Up',
+                text: 'Already have an Account? ',
+                textLink: 'Sign In',
                 onTap: () {
-                  Navigator.pushNamed(context, SignUpPage.id);
+                  Navigator.pop(context);
                 },
               ),
             ],

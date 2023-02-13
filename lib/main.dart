@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/pages/sign_in_page.dart';
+import 'package:yalla/pages/sign_up_page.dart';
 import 'package:yalla/pages/splash_page.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashPage.id: (context) => const SplashPage(),
         SignInPage.id: (context) => const SignInPage(),
+        SignUpPage.id: (context) => const SignUpPage(),
       },
     );
   }
