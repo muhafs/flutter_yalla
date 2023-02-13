@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Box Style
+const double kDefaultMargin = 30.0;
+
 // Colors
 const Color kPrimaryColor = Color(0xFF6C5ECF);
 const Color kSecondaryColor = Color(0xFF38ABBE);
@@ -13,11 +16,14 @@ const Color kBgColor3 = Color(0xFF242231);
 
 const Color kPrimaryTextColor = Color(0xFFF1F0F2);
 const Color kSecondaryTextColor = Color(0xFF999999);
+const Color kSubTextColor = Color(0xFF504F5E);
 
 // Text Styles
 TextStyle kPrimaryTextStyle = GoogleFonts.poppins(color: kPrimaryTextColor);
 TextStyle kSecondaryTextStyle = GoogleFonts.poppins(color: kSecondaryTextColor);
+TextStyle kSubTextStyle = GoogleFonts.poppins(color: kSubTextColor);
 TextStyle kPriceTextStyle = GoogleFonts.poppins(color: kPriceColor);
+TextStyle kPurpleTextStyle = GoogleFonts.poppins(color: kPrimaryColor);
 
 // Font Weights
 FontWeight light = FontWeight.w300;
