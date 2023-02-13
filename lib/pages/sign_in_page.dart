@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/components/auth_button.dart';
+import 'package:yalla/components/auth_footer.dart';
+import 'package:yalla/components/auth_header.dart';
 import 'package:yalla/theme.dart';
 import 'package:yalla/components/auth_input.dart';
 
@@ -15,53 +17,6 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
-    Widget header() {
-      return Container(
-        margin: const EdgeInsets.only(top: kDefaultMargin),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Login',
-              style: kPrimaryTextStyle.copyWith(
-                fontSize: 24,
-                fontWeight: semibold,
-              ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              'Sign In to Continue',
-              style: kSubTextStyle,
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget footer() {
-      return Container(
-        margin: const EdgeInsets.only(bottom: kDefaultMargin),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Don\'t have an Account? ',
-              style: kSubTextStyle.copyWith(
-                fontSize: 12,
-              ),
-            ),
-            Text(
-              'Sign Up',
-              style: kPurpleTextStyle.copyWith(
-                fontSize: 12,
-                fontWeight: medium,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: kBgColor1,
       resizeToAvoidBottomInset: false,
@@ -73,7 +28,7 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              header(),
+              const AuthHeader(title: 'Login', subTitle: 'Sign In to Continue'),
               //
               const SizedBox(height: 70),
               //
@@ -99,7 +54,11 @@ class _SignInPageState extends State<SignInPage> {
               //
               const Spacer(),
               //
-              footer(),
+              AuthFooter(
+                text: 'Don\'t have an Account? ',
+                textLink: 'Sign Up',
+                onTap: () {},
+              ),
             ],
           ),
         ),
