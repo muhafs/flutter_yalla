@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/pages/navpages/chat_page.dart';
+import 'package:yalla/pages/navpages/home_page.dart';
+import 'package:yalla/pages/navpages/profile_page.dart';
+import 'package:yalla/pages/navpages/wish_page.dart';
 import 'package:yalla/theme.dart';
 
 class MainPage extends StatefulWidget {
@@ -12,7 +16,12 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-  List pages = [];
+  List pages = const [
+    HomePage(),
+    ChatPage(),
+    WishPage(),
+    ProfilePage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,27 +49,65 @@ class _MainPageState extends State<MainPage> {
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
+            //
+            currentIndex: currentIndex,
+            onTap: (value) => setState(() => currentIndex = value),
+            //
             items: [
               BottomNavigationBarItem(
-                icon: Image.asset('assets/icon_home.png', width: 20),
+                icon: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Image.asset(
+                    'assets/icon_home.png',
+                    width: 20,
+                    color:
+                        currentIndex == 0 ? kPrimaryColor : kUnselectedNavColor,
+                  ),
+                ),
                 label: 'home',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset('assets/icon_chat.png', width: 20),
+                icon: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Image.asset(
+                    'assets/icon_chat.png',
+                    width: 20,
+                    color:
+                        currentIndex == 1 ? kPrimaryColor : kUnselectedNavColor,
+                  ),
+                ),
                 label: 'chat',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset('assets/icon_wishlist.png', width: 20),
+                icon: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Image.asset(
+                    'assets/icon_wishlist.png',
+                    width: 20,
+                    color:
+                        currentIndex == 2 ? kPrimaryColor : kUnselectedNavColor,
+                  ),
+                ),
                 label: 'wishlist',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset('assets/icon_profile.png', width: 18),
+                icon: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Image.asset(
+                    'assets/icon_profile.png',
+                    width: 18,
+                    color:
+                        currentIndex == 3 ? kPrimaryColor : kUnselectedNavColor,
+                  ),
+                ),
                 label: 'profile',
               ),
             ],
           ),
         ),
       ),
+      //
+      body: pages[currentIndex],
     );
   }
 }

@@ -9,6 +9,7 @@ const Color kPrimaryColor = Color(0xFF6C5ECF);
 const Color kSecondaryColor = Color(0xFF38ABBE);
 const Color kAlertColor = Color(0xFFED6363);
 const Color kPriceColor = Color(0xFF2C96F1);
+const Color kUnselectedNavColor = Color(0xFF808191);
 
 const Color kBgColor1 = Color(0xFF1F1D2B);
 const Color kBgColor2 = Color(0xFF2B2937);
