@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/auth_button.dart';
 import 'package:yalla/components/auth_footer.dart';
 import 'package:yalla/components/auth_header.dart';
+import 'package:yalla/pages/navpages/main_page.dart';
 import 'package:yalla/pages/sign_in_page.dart';
 import 'package:yalla/theme.dart';
 import 'package:yalla/components/auth_input.dart';
@@ -70,7 +71,10 @@ class _SignUpPageState extends State<SignUpPage> {
               //
               const SizedBox(height: 30),
               //
-              const AuthButton(text: 'Sign Up'),
+              AuthButton(
+                text: 'Sign Up',
+                onPressed: () => Navigator.pushNamed(context, MainPage.id),
+              ),
               //
               const Spacer(),
               //
