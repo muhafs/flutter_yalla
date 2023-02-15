@@ -11,11 +11,13 @@ const Color kAlertColor = Color(0xFFED6363);
 const Color kPriceColor = Color(0xFF2C96F1);
 const Color kUnselectedNavColor = Color(0xFF808191);
 const Color kTransparentColor = Colors.transparent;
+const Color kBlackColor = Color(0xFF2E2E2E);
 
 const Color kBgColor1 = Color(0xFF1F1D2B);
 const Color kBgColor2 = Color(0xFF2B2937);
 const Color kBgColor3 = Color(0xFF242231);
 const Color kBgColor4 = Color(0xFF252836);
+const Color kBgColor5 = Color(0xFFECEDEF);
 
 const Color kPrimaryTextColor = Color(0xFFF1F0F2);
 const Color kSecondaryTextColor = Color(0xFF999999);
@@ -27,6 +29,7 @@ TextStyle kSecondaryTextStyle = GoogleFonts.poppins(color: kSecondaryTextColor);
 TextStyle kSubTextStyle = GoogleFonts.poppins(color: kSubTextColor);
 TextStyle kPriceTextStyle = GoogleFonts.poppins(color: kPriceColor);
 TextStyle kPurpleTextStyle = GoogleFonts.poppins(color: kPrimaryColor);
+TextStyle kBlackTextStyle = GoogleFonts.poppins(color: kBlackColor);
 
 // Font Weights
 FontWeight light = FontWeight.w300;

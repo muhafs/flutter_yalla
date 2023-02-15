@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:yalla/components/auth_button.dart';
-import 'package:yalla/components/auth_footer.dart';
-import 'package:yalla/components/auth_header.dart';
+import 'package:yalla/components/auth/auth_button.dart';
+import 'package:yalla/components/auth/auth_footer.dart';
+import 'package:yalla/components/auth/auth_header.dart';
 import 'package:yalla/pages/navpages/main_page.dart';
 import 'package:yalla/pages/sign_up_page.dart';
 import 'package:yalla/theme.dart';
-import 'package:yalla/components/auth_input.dart';
+import 'package:yalla/components/auth/auth_input.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
