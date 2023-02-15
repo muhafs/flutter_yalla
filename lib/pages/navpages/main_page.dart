@@ -30,6 +30,7 @@ class _MainPageState extends State<MainPage> {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
         //
         child: BottomAppBar(
+          color: kBgColor4,
           shape: const CircularNotchedRectangle(),
           clipBehavior: Clip.antiAlias,
           notchMargin: 10,
