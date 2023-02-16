@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/components/home/category_card.dart';
 import 'package:yalla/components/home/product_card.dart';
+import 'package:yalla/components/home/product_tile.dart';
 import 'package:yalla/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -99,7 +100,41 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-          )
+          ),
+          const SizedBox(height: kDefaultMargin),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
+            child: Text(
+              'New Arrivals',
+              style: kPrimaryTextStyle.copyWith(
+                fontSize: 22,
+                fontWeight: semibold,
+              ),
+            ),
+          ),
+          const SizedBox(height: 14),
+          Column(
+            children: const [
+              ProductTile(
+                imageName: 'image_shoes.png',
+                category: 'Football',
+                title: 'Predator 20.3 Firm Ground',
+                price: '51.24',
+              ),
+              ProductTile(
+                imageName: 'image_shoes2.png',
+                category: 'Casual',
+                title: 'Classic Buisnesse Gangnam Style V.02',
+                price: '251.24',
+              ),
+              ProductTile(
+                imageName: 'image_shoes3.png',
+                category: 'School',
+                title: 'Time Back to School 3.0',
+                price: '51.24',
+              ),
+            ],
+          ),
         ],
       ),
     );
