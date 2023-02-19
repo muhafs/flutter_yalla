@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yalla/pages/navpages/chat_page.dart';
-import 'package:yalla/pages/navpages/home_page.dart';
-import 'package:yalla/pages/navpages/profile_page.dart';
-import 'package:yalla/pages/navpages/wish_page.dart';
+import 'package:yalla/pages/navigation/chat_page.dart';
+import 'package:yalla/pages/navigation/home_page.dart';
+import 'package:yalla/pages/navigation/profile_page.dart';
+import 'package:yalla/pages/navigation/wish_page.dart';
 import 'package:yalla/theme.dart';
 
 class MainPage extends StatefulWidget {

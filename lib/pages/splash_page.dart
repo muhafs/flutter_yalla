@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:yalla/pages/sign_in_page.dart';
+import 'package:yalla/pages/auth/sign_in_page.dart';
 import 'package:yalla/theme.dart';
 
 class SplashPage extends StatefulWidget {

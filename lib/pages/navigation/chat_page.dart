@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/components/chat/chat_tile.dart';
+import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/theme.dart';
 
 class ChatPage extends StatefulWidget {
@@ -54,22 +55,11 @@ class _ChatList extends StatelessWidget {
         top: 21,
         right: kDefaultMargin,
       ),
-      children: const [
+      children: [
         ChatTile(
-          imageName: 'image_shop_logo',
-          title: 'Shoe Store',
-          lastChat:
-              'Good night, This item is on delivery state to your address',
-          date: 'Now',
-        ),
-        ChatTile(
-          imageName: 'image_shop_logo',
-          title: 'Shoe Store',
-          lastChat:
-              'Good night, This item is on delivery state to your address',
-          date: 'Now',
-        ),
-        ChatTile(
+          onTap: () {
+            Navigator.pushNamed(context, DetailChatPage.id);
+          },
           imageName: 'image_shop_logo',
           title: 'Shoe Store',
           lastChat:

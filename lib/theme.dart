@@ -18,6 +18,7 @@ const Color kBgColor2 = Color(0xFF2B2937);
 const Color kBgColor3 = Color(0xFF242231);
 const Color kBgColor4 = Color(0xFF252836);
 const Color kBgColor5 = Color(0xFFECEDEF);
+const Color kBgColor6 = Color(0xFF2B2844);
 
 const Color kPrimaryTextColor = Color(0xFFF1F0F2);
 const Color kSecondaryTextColor = Color(0xFF999999);

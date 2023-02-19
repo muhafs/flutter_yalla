@@ -3,7 +3,7 @@ import 'package:yalla/theme.dart';
 import 'package:yalla/components/auth/auth_button.dart';
 import 'package:yalla/components/auth/auth_footer.dart';
 import 'package:yalla/components/auth/auth_header.dart';
-import 'package:yalla/pages/navpages/main_page.dart';
+import 'package:yalla/pages/navigation/main_page.dart';
 import 'package:yalla/components/auth/auth_input.dart';
 
 class SignUpPage extends StatefulWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/theme.dart';
 
 class WishPage extends StatefulWidget {
   const WishPage({super.key});
@@ -10,8 +11,11 @@ class WishPage extends StatefulWidget {
 class _WishPageState extends State<WishPage> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Wish Page'),
+    return Center(
+      child: Text(
+        'Wish Page',
+        style: kPrimaryTextStyle,
+      ),
     );
   }
 }
