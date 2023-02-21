@@ -19,7 +19,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBgColor1,
+      backgroundColor: kBackground1,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
@@ -31,8 +31,6 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const AuthHeader(
                   title: 'Sign Up', subTitle: 'Register and Happy Shopping'),
-              //
-              const SizedBox(height: 70),
               //
               const AuthInput(
                 title: 'Full Name',

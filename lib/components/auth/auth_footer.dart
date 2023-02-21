@@ -22,7 +22,7 @@ class AuthFooter extends StatelessWidget {
         children: [
           Text(
             text,
-            style: kSubTextStyle.copyWith(
+            style: kTextStyleSub.copyWith(
               fontSize: 12,
             ),
           ),
@@ -30,7 +30,7 @@ class AuthFooter extends StatelessWidget {
             onTap: onTap,
             child: Text(
               textLink,
-              style: kPurpleTextStyle.copyWith(
+              style: kTextStylePurple.copyWith(
                 fontSize: 12,
                 fontWeight: medium,
               ),

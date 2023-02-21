@@ -41,14 +41,14 @@ class ProductTile extends StatelessWidget {
               children: [
                 Text(
                   category,
-                  style: kSecondaryTextStyle.copyWith(
+                  style: kTextStyleSecondary.copyWith(
                     fontSize: 12,
                   ),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   title,
-                  style: kPrimaryTextStyle.copyWith(
+                  style: kTextStylePrimary.copyWith(
                     fontSize: 16,
                     fontWeight: semibold,
                   ),
@@ -58,7 +58,7 @@ class ProductTile extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   '\$$price',
-                  style: kPriceTextStyle.copyWith(
+                  style: kTextStylePrice.copyWith(
                     fontWeight: medium,
                   ),
                 )

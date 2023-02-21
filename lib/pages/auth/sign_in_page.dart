@@ -20,7 +20,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBgColor1,
+      backgroundColor: kBackground1,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
@@ -31,8 +31,6 @@ class _SignInPageState extends State<SignInPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const AuthHeader(title: 'Login', subTitle: 'Sign In to Continue'),
-              //
-              const SizedBox(height: 70),
               //
               const AuthInput(
                 title: 'Email Address',

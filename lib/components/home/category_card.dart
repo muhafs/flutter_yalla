@@ -20,13 +20,13 @@ class CategoryCard extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
-        color: isActive ? kPrimaryColor : kTransparentColor,
-        border: Border.all(color: isActive ? kPrimaryColor : kSubTextColor),
+        color: isActive ? kColorPrimary : kColorTransparent,
+        border: Border.all(color: isActive ? kColorPrimary : kTextColorSub),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
         title,
-        style: (isActive ? kPrimaryTextStyle : kSubTextStyle).copyWith(
+        style: (isActive ? kTextStylePrimary : kTextStyleSub).copyWith(
           fontSize: 13,
           fontWeight: medium,
         ),

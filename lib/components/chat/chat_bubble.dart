@@ -16,95 +16,6 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget productPreview() {
-      return Container(
-        width: 230,
-        margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: isSender ? kBgColor6 : kBgColor4,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(isSender ? 12 : 0),
-            topRight: Radius.circular(isSender ? 0 : 12),
-            bottomLeft: const Radius.circular(12),
-            bottomRight: const Radius.circular(12),
-          ),
-        ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    'assets/image_shoes.png',
-                    width: 70,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Court Vision v.20 shoes'.toUpperCase(),
-                        style: kPrimaryTextStyle,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '\$50.13',
-                        style: kPriceTextStyle.copyWith(fontWeight: medium),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                OutlinedButton(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(
-                      color: kPrimaryColor,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Text(
-                    'Add to Cart',
-                    style: kPurpleTextStyle,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    backgroundColor: kPrimaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Text(
-                    'But Now',
-                    style: GoogleFonts.poppins(
-                      color: kBgColor6,
-                      fontWeight: medium,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
-    }
-
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: kDefaultMargin),
@@ -125,7 +36,7 @@ class ChatBubble extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                   decoration: BoxDecoration(
-                    color: isSender ? kBgColor6 : kBgColor4,
+                    color: isSender ? kBackground6 : kBackground4,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(isSender ? 12 : 0),
                       topRight: Radius.circular(isSender ? 0 : 12),
@@ -135,10 +46,99 @@ class ChatBubble extends StatelessWidget {
                   ),
                   child: Text(
                     text,
-                    style: kPrimaryTextStyle,
+                    style: kTextStylePrimary,
                   ),
                 ),
               )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget productPreview() {
+    return Container(
+      width: 230,
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: isSender ? kBackground6 : kBackground4,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(isSender ? 12 : 0),
+          topRight: Radius.circular(isSender ? 0 : 12),
+          bottomLeft: const Radius.circular(12),
+          bottomRight: const Radius.circular(12),
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'assets/image_shoes.png',
+                  width: 70,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Court Vision v.20 shoes'.toUpperCase(),
+                      style: kTextStylePrimary,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      '\$50.13',
+                      style: kTextStylePrice.copyWith(fontWeight: medium),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(
+                    color: kColorPrimary,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Text(
+                  'Add to Cart',
+                  style: kTextStylePurple,
+                ),
+              ),
+              const SizedBox(width: 8),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: kColorPrimary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Text(
+                  'But Now',
+                  style: GoogleFonts.poppins(
+                    color: kBackground6,
+                    fontWeight: medium,
+                  ),
+                ),
+              ),
             ],
           ),
         ],

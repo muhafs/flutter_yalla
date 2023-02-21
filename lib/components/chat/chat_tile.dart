@@ -38,13 +38,13 @@ class ChatTile extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: kPrimaryTextStyle.copyWith(
+                        style: kTextStylePrimary.copyWith(
                           fontSize: 15,
                         ),
                       ),
                       Text(
                         lastChat,
-                        style: kSecondaryTextStyle.copyWith(
+                        style: kTextStyleSecondary.copyWith(
                           fontWeight: light,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -56,7 +56,7 @@ class ChatTile extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   date,
-                  style: kSecondaryTextStyle.copyWith(
+                  style: kTextStyleSecondary.copyWith(
                     fontSize: 10,
                   ),
                 ),

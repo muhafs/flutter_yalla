@@ -19,14 +19,14 @@ class AuthButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: kPrimaryColor,
+          backgroundColor: kColorPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
         ),
         child: Text(
           text,
-          style: kPrimaryTextStyle.copyWith(
+          style: kTextStylePrimary.copyWith(
             fontSize: 16,
             fontWeight: medium,
           ),

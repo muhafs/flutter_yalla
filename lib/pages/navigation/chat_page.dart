@@ -11,44 +11,43 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  bool isChatEmpty = false;
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppBar(
-          backgroundColor: kBgColor1,
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          title: Text(
-            'Message Support',
-            style: kPrimaryTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            color: kBgColor3,
-            child: isChatEmpty ? const _EmptyChat() : const _ChatList(),
-          ),
-        ),
+        pageHeader(),
+        pageContent(),
       ],
     );
   }
-}
 
-class _ChatList extends StatelessWidget {
-  const _ChatList({
-    Key? key,
-  }) : super(key: key);
+  Widget pageHeader() {
+    return AppBar(
+      backgroundColor: kBackground1,
+      centerTitle: true,
+      automaticallyImplyLeading: false,
+      elevation: 0,
+      title: Text(
+        'Message Support',
+        style: kTextStylePrimary.copyWith(
+          fontSize: 18,
+          fontWeight: medium,
+        ),
+      ),
+    );
+  }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget pageContent() {
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        color: kBackground3,
+        child: chatList(),
+      ),
+    );
+  }
+
+  Widget chatList() {
     return ListView(
       padding: const EdgeInsets.only(
         left: kDefaultMargin,
@@ -69,15 +68,8 @@ class _ChatList extends StatelessWidget {
       ],
     );
   }
-}
 
-class _EmptyChat extends StatelessWidget {
-  const _EmptyChat({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+  Widget emptyPage() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -88,7 +80,7 @@ class _EmptyChat extends StatelessWidget {
         const SizedBox(height: 20),
         Text(
           'Opss no message yet?',
-          style: kPrimaryTextStyle.copyWith(
+          style: kTextStylePrimary.copyWith(
             fontSize: 16,
             fontWeight: medium,
           ),
@@ -96,7 +88,7 @@ class _EmptyChat extends StatelessWidget {
         const SizedBox(height: 12),
         Text(
           'You have never done a transaction',
-          style: kSubTextStyle,
+          style: kTextStyleSub,
         ),
         const SizedBox(height: 20),
         SizedBox(
@@ -108,14 +100,14 @@ class _EmptyChat extends StatelessWidget {
                 vertical: 10,
                 horizontal: 24,
               ),
-              backgroundColor: kPrimaryColor,
+              backgroundColor: kColorPrimary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
             child: Text(
               'Explore Store',
-              style: kPrimaryTextStyle.copyWith(
+              style: kTextStylePrimary.copyWith(
                 fontSize: 16,
                 fontWeight: medium,
               ),

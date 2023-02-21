@@ -14,7 +14,7 @@ class _WishPageState extends State<WishPage> {
     return Center(
       child: Text(
         'Wish Page',
-        style: kPrimaryTextStyle,
+        style: kTextStylePrimary,
       ),
     );
   }

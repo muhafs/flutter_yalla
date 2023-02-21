@@ -14,13 +14,13 @@ class AuthHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: kDefaultMargin),
+      margin: const EdgeInsets.only(top: kDefaultMargin, bottom: 70.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: kPrimaryTextStyle.copyWith(
+            style: kTextStylePrimary.copyWith(
               fontSize: 24,
               fontWeight: semibold,
             ),
@@ -28,7 +28,7 @@ class AuthHeader extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             subTitle,
-            style: kSubTextStyle,
+            style: kTextStyleSub,
           ),
         ],
       ),

@@ -22,7 +22,7 @@ class AuthInput extends StatelessWidget {
       children: [
         Text(
           title,
-          style: kPrimaryTextStyle.copyWith(
+          style: kTextStylePrimary.copyWith(
             fontSize: 16,
             fontWeight: medium,
           ),
@@ -32,7 +32,7 @@ class AuthInput extends StatelessWidget {
           height: 50,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: kBgColor2,
+            color: kBackground2,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Center(
@@ -45,11 +45,11 @@ class AuthInput extends StatelessWidget {
                 const SizedBox(width: 16),
                 Expanded(
                   child: TextFormField(
-                    style: kPrimaryTextStyle,
+                    style: kTextStylePrimary,
                     obscureText: isPassword,
                     decoration: InputDecoration.collapsed(
                       hintText: hint,
-                      hintStyle: kSubTextStyle,
+                      hintStyle: kTextStyleSub,
                     ),
                   ),
                 ),

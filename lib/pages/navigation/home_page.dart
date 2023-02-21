@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/home/category_card.dart';
 import 'package:yalla/components/home/product_card.dart';
 import 'package:yalla/components/home/product_tile.dart';
+import 'package:yalla/components/home/section_title.dart';
 import 'package:yalla/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,104 +17,112 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
-        padding: const EdgeInsets.only(top: kDefaultMargin),
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
-            child: Row(
+          pageHeader(),
+          categorySection(),
+          popularProducts(),
+          newArrivals(),
+        ],
+      ),
+    );
+  }
+
+  Widget pageHeader() {
+    return Padding(
+      padding: const EdgeInsets.all(kDefaultMargin),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hello, Muhamad',
-                        style: kPrimaryTextStyle.copyWith(
-                          fontSize: 24,
-                          fontWeight: semibold,
-                        ),
-                      ),
-                      Text(
-                        '@muhamadhaspin',
-                        style: kSubTextStyle.copyWith(
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
+                Text(
+                  'Hello, Muhamad',
+                  style: kTextStylePrimary.copyWith(
+                    fontSize: 24,
+                    fontWeight: semibold,
                   ),
                 ),
-                const CircleAvatar(
-                  radius: 27,
-                  backgroundImage: AssetImage('assets/image_profile.png'),
-                )
+                Text(
+                  '@muhamadhaspin',
+                  style: kTextStyleSub.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
               ],
             ),
           ),
-          const SizedBox(height: kDefaultMargin),
-          SingleChildScrollView(
+          const CircleAvatar(
+            radius: 27,
+            backgroundImage: AssetImage('assets/image_profile.png'),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget categorySection() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: kDefaultMargin),
+      child: ListView(
+        padding: const EdgeInsets.only(left: kDefaultMargin),
+        scrollDirection: Axis.horizontal,
+        children: const [
+          CategoryCard(title: 'All Shoes', isActive: true),
+          CategoryCard(title: 'Running', isActive: false),
+          CategoryCard(title: 'Training', isActive: false),
+          CategoryCard(title: 'Basketball', isActive: false),
+          CategoryCard(title: 'Hiking', isActive: false),
+        ],
+      ),
+    );
+  }
+
+  Widget popularProducts() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: kDefaultMargin),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SectionTitle(title: 'Popular Products'),
+          ListView(
+            padding: const EdgeInsets.only(left: kDefaultMargin),
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: const [
-                SizedBox(width: kDefaultMargin),
-                CategoryCard(title: 'All Shoes', isActive: true),
-                CategoryCard(title: 'Running', isActive: false),
-                CategoryCard(title: 'Training', isActive: false),
-                CategoryCard(title: 'Basketball', isActive: false),
-                CategoryCard(title: 'Hiking', isActive: false),
-              ],
-            ),
-          ),
-          const SizedBox(height: kDefaultMargin),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
-            child: Text(
-              'Popular Products',
-              style: kPrimaryTextStyle.copyWith(
-                fontSize: 22,
-                fontWeight: semibold,
+            children: const [
+              ProductCard(
+                image: 'assets/image_shoes.png',
+                category: 'Hiking',
+                title: 'court vision 2.0',
+                price: '50.12',
               ),
-            ),
-          ),
-          const SizedBox(height: 14),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: const [
-                SizedBox(width: kDefaultMargin),
-                ProductCard(
-                  image: 'assets/image_shoes.png',
-                  category: 'Hiking',
-                  title: 'court vision 2.0',
-                  price: '50.12',
-                ),
-                ProductCard(
-                  image: 'assets/image_shoes2.png',
-                  category: 'Running',
-                  title: 'master vision 2.0',
-                  price: '150.53',
-                ),
-                ProductCard(
-                  image: 'assets/image_shoes3.png',
-                  category: 'Basketball',
-                  title: 'dollar vision 2.0',
-                  price: '1999.99',
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: kDefaultMargin),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
-            child: Text(
-              'New Arrivals',
-              style: kPrimaryTextStyle.copyWith(
-                fontSize: 22,
-                fontWeight: semibold,
+              ProductCard(
+                image: 'assets/image_shoes2.png',
+                category: 'Running',
+                title: 'master vision 2.0',
+                price: '150.53',
               ),
-            ),
+              ProductCard(
+                image: 'assets/image_shoes3.png',
+                category: 'Basketball',
+                title: 'dollar vision 2.0',
+                price: '1999.99',
+              ),
+            ],
           ),
-          const SizedBox(height: 14),
+        ],
+      ),
+    );
+  }
+
+  Widget newArrivals() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: kDefaultMargin),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SectionTitle(title: 'New Arrivals'),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               ProductTile(
                 imageName: 'image_shoes.png',

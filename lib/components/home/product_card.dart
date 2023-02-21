@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
       height: 278,
       margin: const EdgeInsets.only(right: kDefaultMargin),
       decoration: BoxDecoration(
-        color: kBgColor5,
+        color: kBackground5,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -42,12 +42,12 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   category,
-                  style: kSecondaryTextStyle.copyWith(fontSize: 12),
+                  style: kTextStyleSecondary.copyWith(fontSize: 12),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   title.toUpperCase(),
-                  style: kBlackTextStyle.copyWith(
+                  style: kTextStyleBlack.copyWith(
                     fontSize: 18,
                     fontWeight: semibold,
                   ),
@@ -56,7 +56,7 @@ class ProductCard extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   '\$$price',
-                  style: kPriceTextStyle.copyWith(
+                  style: kTextStylePrice.copyWith(
                     fontSize: 14,
                     fontWeight: medium,
                   ),

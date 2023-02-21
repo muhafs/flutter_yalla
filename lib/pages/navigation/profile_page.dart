@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Center(
       child: Text(
         'Profile Page',
-        style: kPrimaryTextStyle,
+        style: kTextStylePrimary,
       ),
     );
   }
