@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/components/chat/chat_tile.dart';
+import 'package:yalla/components/empty_page.dart';
 import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/theme.dart';
 
@@ -11,8 +12,17 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  final EmptyPage emptyChat = const EmptyPage(
+    pageHeader: 'Message Support',
+    imagePath: 'assets/icon_headset.png',
+    subTitle: 'You have never done a transaction',
+    title: 'Opss no message yet?',
+    buttonText: 'Explore Store',
+  );
+
   @override
   Widget build(BuildContext context) {
+    // return emptyChat;
     return Column(
       children: [
         pageHeader(),
@@ -64,55 +74,6 @@ class _ChatPageState extends State<ChatPage> {
           lastChat:
               'Good night, This item is on delivery state to your address',
           date: 'Now',
-        ),
-      ],
-    );
-  }
-
-  Widget emptyPage() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(
-          'assets/icon_headset.png',
-          width: 80,
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'Opss no message yet?',
-          style: kTextStylePrimary.copyWith(
-            fontSize: 16,
-            fontWeight: medium,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          'You have never done a transaction',
-          style: kTextStyleSub,
-        ),
-        const SizedBox(height: 20),
-        SizedBox(
-          height: 44,
-          child: TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 24,
-              ),
-              backgroundColor: kColorPrimary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: Text(
-              'Explore Store',
-              style: kTextStylePrimary.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-          ),
         ),
       ],
     );

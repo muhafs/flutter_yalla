@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.only(bottom: kDefaultMargin),
       child: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: kDefaultMargin),
+        padding: const EdgeInsets.only(left: kDefaultMargin, right: 14),
         scrollDirection: Axis.horizontal,
         child: Row(
           children: const [
