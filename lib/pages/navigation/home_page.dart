@@ -64,16 +64,18 @@ class _HomePageState extends State<HomePage> {
   Widget categorySection() {
     return Container(
       margin: const EdgeInsets.only(bottom: kDefaultMargin),
-      child: ListView(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.only(left: kDefaultMargin),
         scrollDirection: Axis.horizontal,
-        children: const [
-          CategoryCard(title: 'All Shoes', isActive: true),
-          CategoryCard(title: 'Running', isActive: false),
-          CategoryCard(title: 'Training', isActive: false),
-          CategoryCard(title: 'Basketball', isActive: false),
-          CategoryCard(title: 'Hiking', isActive: false),
-        ],
+        child: Row(
+          children: const [
+            CategoryCard(title: 'All Shoes', isActive: true),
+            CategoryCard(title: 'Running', isActive: false),
+            CategoryCard(title: 'Training', isActive: false),
+            CategoryCard(title: 'Basketball', isActive: false),
+            CategoryCard(title: 'Hiking', isActive: false),
+          ],
+        ),
       ),
     );
   }
@@ -85,29 +87,31 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SectionTitle(title: 'Popular Products'),
-          ListView(
+          SingleChildScrollView(
             padding: const EdgeInsets.only(left: kDefaultMargin),
             scrollDirection: Axis.horizontal,
-            children: const [
-              ProductCard(
-                image: 'assets/image_shoes.png',
-                category: 'Hiking',
-                title: 'court vision 2.0',
-                price: '50.12',
-              ),
-              ProductCard(
-                image: 'assets/image_shoes2.png',
-                category: 'Running',
-                title: 'master vision 2.0',
-                price: '150.53',
-              ),
-              ProductCard(
-                image: 'assets/image_shoes3.png',
-                category: 'Basketball',
-                title: 'dollar vision 2.0',
-                price: '1999.99',
-              ),
-            ],
+            child: Row(
+              children: const [
+                ProductCard(
+                  image: 'assets/image_shoes.png',
+                  category: 'Hiking',
+                  title: 'court vision 2.0',
+                  price: '50.12',
+                ),
+                ProductCard(
+                  image: 'assets/image_shoes2.png',
+                  category: 'Running',
+                  title: 'master vision 2.0',
+                  price: '150.53',
+                ),
+                ProductCard(
+                  image: 'assets/image_shoes3.png',
+                  category: 'Basketball',
+                  title: 'dollar vision 2.0',
+                  price: '1999.99',
+                ),
+              ],
+            ),
           ),
         ],
       ),

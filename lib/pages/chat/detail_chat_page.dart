@@ -22,41 +22,39 @@ class _DetailChatPageState extends State<DetailChatPage> {
     );
   }
 
-  PreferredSize appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(70),
-      child: AppBar(
-        backgroundColor: kBackground1,
-        centerTitle: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/image_shop_logo_online.png',
-              width: 50,
-            ),
-            const SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Shoe Store',
-                  style: kTextStylePrimary.copyWith(
-                    fontSize: 14,
-                    fontWeight: medium,
-                  ),
+  AppBar appBar() {
+    return AppBar(
+      backgroundColor: kBackground1,
+      centerTitle: false,
+      toolbarHeight: 70,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(
+            'assets/image_shop_logo_online.png',
+            width: 50,
+          ),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Shoe Store',
+                style: kTextStylePrimary.copyWith(
+                  fontSize: 14,
+                  fontWeight: medium,
                 ),
-                Text(
-                  'Online',
-                  style: kTextStyleSecondary.copyWith(
-                    fontSize: 14,
-                    fontWeight: light,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+              ),
+              Text(
+                'Online',
+                style: kTextStyleSecondary.copyWith(
+                  fontSize: 14,
+                  fontWeight: light,
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
