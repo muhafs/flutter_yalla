@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
           categorySection(),
           popularProducts(),
           newArrivals(),
+          popularProducts(),
         ],
       ),
     );

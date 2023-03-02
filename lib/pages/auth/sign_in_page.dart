@@ -52,7 +52,8 @@ class _SignInPageState extends State<SignInPage> {
               //
               AuthButton(
                 text: 'Sign In',
-                onPressed: () => Navigator.pushNamed(context, MainPage.id),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, MainPage.id),
               ),
               //
               const Spacer(),

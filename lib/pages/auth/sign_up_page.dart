@@ -70,7 +70,8 @@ class _SignUpPageState extends State<SignUpPage> {
               //
               AuthButton(
                 text: 'Sign Up',
-                onPressed: () => Navigator.pushNamed(context, MainPage.id),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, MainPage.id),
               ),
               //
               const Spacer(),
