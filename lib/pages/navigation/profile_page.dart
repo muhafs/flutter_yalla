@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/components/profile/menu_container.dart';
 import 'package:yalla/components/profile/menu_tile.dart';
+import 'package:yalla/pages/auth/sign_in_page.dart';
 import 'package:yalla/theme.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -56,9 +57,18 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              Image.asset(
-                'assets/button_exit.png',
-                width: 20,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    SignInPage.id,
+                    (route) => false,
+                  );
+                },
+                child: Image.asset(
+                  'assets/button_exit.png',
+                  width: 20,
+                ),
               )
             ],
           ),
