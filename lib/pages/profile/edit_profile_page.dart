@@ -14,13 +14,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackground3,
       appBar: pageHeader(),
+      body: pageContent(),
     );
   }
 
   AppBar pageHeader() {
     return AppBar(
-      backgroundColor: kBackground3,
+      backgroundColor: kBackground1,
       automaticallyImplyLeading: false,
       toolbarHeight: 80,
       elevation: 0,
@@ -54,5 +56,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
         ),
       ),
     );
+  }
+
+  Widget pageContent() {
+    return Container();
   }
 }
