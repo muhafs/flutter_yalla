@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/profile/menu_container.dart';
 import 'package:yalla/components/profile/menu_tile.dart';
 import 'package:yalla/pages/auth/sign_in_page.dart';
+import 'package:yalla/pages/profile/edit_profile_page.dart';
 import 'package:yalla/theme.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -88,7 +89,12 @@ class _ProfilePageState extends State<ProfilePage> {
             MenuContainer(
               title: 'Account',
               children: [
-                MenuTile(title: 'Edit Profile', onPress: () {}),
+                MenuTile(
+                  title: 'Edit Profile',
+                  onPress: () {
+                    Navigator.pushNamed(context, EditProfilePage.id);
+                  },
+                ),
                 MenuTile(title: 'Your Orders', onPress: () {}),
                 MenuTile(title: 'Help', onPress: () {}),
               ],

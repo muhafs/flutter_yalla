@@ -5,7 +5,7 @@ import 'package:yalla/theme.dart';
 class DetailChatPage extends StatefulWidget {
   const DetailChatPage({super.key});
 
-  static const String id = 'detail-chat-page';
+  static const String id = 'detail_chat_page';
 
   @override
   State<DetailChatPage> createState() => _DetailChatPageState();

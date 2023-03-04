@@ -3,6 +3,7 @@ import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/pages/navigation/main_page.dart';
 import 'package:yalla/pages/auth/sign_in_page.dart';
 import 'package:yalla/pages/auth/sign_up_page.dart';
+import 'package:yalla/pages/profile/edit_profile_page.dart';
 import 'package:yalla/pages/splash_page.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         SignUpPage.id: (context) => const SignUpPage(),
         MainPage.id: (context) => const MainPage(),
         DetailChatPage.id: (context) => const DetailChatPage(),
+        EditProfilePage.id: (context) => const EditProfilePage(),
       },
     );
   }
