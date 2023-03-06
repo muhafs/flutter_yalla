@@ -15,7 +15,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: kBackground3,
       appBar: pageHeader(),
       body: pageContent(),
@@ -64,21 +63,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(kDefaultMargin),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(bottom: kDefaultMargin),
-            child: CircleAvatar(
-              radius: 50,
-              child: Image.asset('assets/image_profile.png'),
+      child: SingleChildScrollView(
+        reverse: true,
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: kDefaultMargin),
+              child: CircleAvatar(
+                radius: 50,
+                child: Image.asset('assets/image_profile.png'),
+              ),
             ),
-          ),
-          const ProfileInput(title: 'Name', hintText: 'Enter your name'),
-          const ProfileInput(
-              title: 'Username', hintText: 'Enter your username'),
-          const ProfileInput(
-              title: 'Email Address', hintText: 'Enter your email address'),
-        ],
+            const ProfileInput(title: 'Name', hintText: 'Enter your name'),
+            const ProfileInput(
+                title: 'Username', hintText: 'Enter your username'),
+            const ProfileInput(
+                title: 'Email Address', hintText: 'Enter your email address'),
+          ],
+        ),
       ),
     );
   }
