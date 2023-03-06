@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/pages/chat/detail_chat_page.dart';
+import 'package:yalla/pages/home/product_page.dart';
 import 'package:yalla/pages/navigation/main_page.dart';
 import 'package:yalla/pages/auth/sign_in_page.dart';
 import 'package:yalla/pages/auth/sign_up_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         MainPage.id: (context) => const MainPage(),
         DetailChatPage.id: (context) => const DetailChatPage(),
         EditProfilePage.id: (context) => const EditProfilePage(),
+        ProductPage.id: (context) => const ProductPage(),
       },
     );
   }
