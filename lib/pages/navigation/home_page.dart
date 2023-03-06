@@ -3,6 +3,7 @@ import 'package:yalla/components/home/category_card.dart';
 import 'package:yalla/components/home/product_card.dart';
 import 'package:yalla/components/home/product_tile.dart';
 import 'package:yalla/components/home/section_title.dart';
+import 'package:yalla/pages/home/product_page.dart';
 import 'package:yalla/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -91,20 +92,23 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: kDefaultMargin),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: const [
+              children: [
                 ProductCard(
+                  onTap: () => Navigator.pushNamed(context, ProductPage.id),
                   image: 'assets/image_shoes.png',
                   category: 'Hiking',
                   title: 'court vision 2.0',
                   price: '50.12',
                 ),
                 ProductCard(
+                  onTap: () => Navigator.pushNamed(context, ProductPage.id),
                   image: 'assets/image_shoes2.png',
                   category: 'Running',
                   title: 'master vision 2.0',
                   price: '150.53',
                 ),
                 ProductCard(
+                  onTap: () => Navigator.pushNamed(context, ProductPage.id),
                   image: 'assets/image_shoes3.png',
                   category: 'Basketball',
                   title: 'dollar vision 2.0',
@@ -127,20 +131,23 @@ class _HomePageState extends State<HomePage> {
           const SectionTitle(title: 'New Arrivals'),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               ProductTile(
+                onTap: () => Navigator.pushNamed(context, ProductPage.id),
                 imageName: 'image_shoes.png',
                 category: 'Football',
                 title: 'Predator 20.3 Firm Ground',
                 price: '51.24',
               ),
               ProductTile(
+                onTap: () => Navigator.pushNamed(context, ProductPage.id),
                 imageName: 'image_shoes2.png',
                 category: 'Casual',
                 title: 'Classic Buisnesse Gangnam Style V.02',
                 price: '251.24',
               ),
               ProductTile(
+                onTap: () => Navigator.pushNamed(context, ProductPage.id),
                 imageName: 'image_shoes3.png',
                 category: 'School',
                 title: 'Time Back to School 3.0',
