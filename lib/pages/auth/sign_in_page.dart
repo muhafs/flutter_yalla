@@ -21,54 +21,49 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackground1,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: kDefaultMargin,
-          ),
-          child: SingleChildScrollView(
-            reverse: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const AuthHeader(
-                    title: 'Login', subTitle: 'Sign In to Continue'),
-                //
-                const AuthInput(
-                  title: 'Email Address',
-                  hint: 'Enter your email address',
-                  icon: 'email',
-                  isPassword: false,
-                ),
-                //
-                const SizedBox(height: 20),
-                //
-                const AuthInput(
-                  title: 'Password',
-                  hint: 'Enter your password',
-                  icon: 'password',
-                  isPassword: true,
-                ),
-                //
-                const SizedBox(height: 30),
-                //
-                AuthButton(
-                  text: 'Sign In',
-                  onPressed: () =>
-                      Navigator.pushReplacementNamed(context, MainPage.id),
-                ),
-                //
-                const Spacer(),
-                //
-                AuthFooter(
-                  text: 'Don\'t have an Account? ',
-                  textLink: 'Sign Up',
-                  onTap: () {
-                    Navigator.pushNamed(context, SignUpPage.id);
-                  },
-                ),
-              ],
-            ),
+          margin: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const AuthHeader(title: 'Login', subTitle: 'Sign In to Continue'),
+              //
+              const AuthInput(
+                title: 'Email Address',
+                hint: 'Enter your email address',
+                icon: 'email',
+                isPassword: false,
+              ),
+              //
+              const SizedBox(height: 20),
+              //
+              const AuthInput(
+                title: 'Password',
+                hint: 'Enter your password',
+                icon: 'password',
+                isPassword: true,
+              ),
+              //
+              const SizedBox(height: 30),
+              //
+              AuthButton(
+                text: 'Sign In',
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, MainPage.id),
+              ),
+              //
+              const Spacer(),
+              //
+              AuthFooter(
+                text: 'Don\'t have an Account? ',
+                textLink: 'Sign Up',
+                onTap: () {
+                  Navigator.pushNamed(context, SignUpPage.id);
+                },
+              ),
+            ],
           ),
         ),
       ),
