@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:yalla/components/home/carousel_indicator.dart';
 import 'package:yalla/components/home/familiar_card.dart';
+import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/theme.dart';
 
 class ProductPage extends StatefulWidget {
@@ -21,6 +22,8 @@ class _ProductPageState extends State<ProductPage> {
   ];
 
   int currentIndex = 0;
+
+  bool isWishlisted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -141,9 +144,28 @@ class _ProductPageState extends State<ProductPage> {
                     ],
                   ),
                 ),
-                Image.asset(
-                  'assets/button_wishlist.png',
-                  width: 46,
+                GestureDetector(
+                  onTap: () => setState(() {
+                    isWishlisted = !isWishlisted;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor:
+                            isWishlisted ? kColorSecondary : kColorAlert,
+                        content: Text(
+                          isWishlisted
+                              ? 'Has been added to the Wishlist'
+                              : 'Has been removed from Wishlist',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
+                  }),
+                  child: Image.asset(
+                    isWishlisted
+                        ? 'assets/button_wishlist_blue.png'
+                        : 'assets/button_wishlist.png',
+                    width: 46,
+                  ),
                 ),
               ],
             ),
@@ -238,7 +260,10 @@ class _ProductPageState extends State<ProductPage> {
             margin: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
             child: Row(
               children: [
-                Image.asset('assets/button_chat.png', width: 54),
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, DetailChatPage.id),
+                  child: Image.asset('assets/button_chat.png', width: 54),
+                ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: SizedBox(
@@ -250,7 +275,9 @@ class _ProductPageState extends State<ProductPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        showSuccessDialog();
+                      },
                       child: Text(
                         'Add to cart',
                         style: kTextStylePrimary.copyWith(
@@ -265,6 +292,87 @@ class _ProductPageState extends State<ProductPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<void> showSuccessDialog() async {
+    return showDialog(
+      context: context,
+      builder: (context) => SizedBox(
+        width: MediaQuery.of(context).size.width - (kDefaultMargin * 2),
+        child: AlertDialog(
+          contentPadding: const EdgeInsets.all(kDefaultMargin),
+          backgroundColor: kBackground3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(kDefaultMargin),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(
+                            Icons.close,
+                            color: kTextColorPrimary,
+                          ),
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/icon_success.png',
+                        width: 135,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    'Hurray :)',
+                    style: kTextStylePrimary.copyWith(
+                      fontSize: 18,
+                      fontWeight: semibold,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  child: Text(
+                    'Item added successfully',
+                    style: kTextStyleSecondary,
+                  ),
+                ),
+                SizedBox(
+                  width: 154,
+                  height: 44,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: kColorPrimary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text(
+                      'View my cart',
+                      style: kTextStylePrimary.copyWith(
+                        fontSize: 16,
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
