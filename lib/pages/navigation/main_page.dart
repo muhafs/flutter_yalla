@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/pages/cart/cart_page.dart';
 import 'package:yalla/pages/navigation/chat_page.dart';
 import 'package:yalla/pages/navigation/home_page.dart';
 import 'package:yalla/pages/navigation/profile_page.dart';
@@ -39,7 +40,7 @@ class _MainPageState extends State<MainPage> {
 
   Widget floatingActionButton() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () => Navigator.pushNamed(context, CartPage.id),
       backgroundColor: kColorSecondary,
       child: Image.asset('assets/icon_cart.png', width: 20),
     );

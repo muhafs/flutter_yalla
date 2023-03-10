@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/pages/cart/cart_page.dart';
 import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/pages/home/product_page.dart';
 import 'package:yalla/pages/navigation/main_page.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Yalla Shopping',
+      title: 'Yalla App',
       debugShowCheckedModeBanner: false,
       initialRoute: SplashPage.id,
       routes: {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         DetailChatPage.id: (context) => const DetailChatPage(),
         EditProfilePage.id: (context) => const EditProfilePage(),
         ProductPage.id: (context) => const ProductPage(),
+        CartPage.id: (context) => const CartPage(),
       },
     );
   }
