@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/components/cart/cart_tile.dart';
+import 'package:yalla/components/empty_page.dart';
+import 'package:yalla/components/page_app_bar.dart';
 import 'package:yalla/pages/navigation/main_page.dart';
 import 'package:yalla/theme.dart';
 
@@ -12,82 +15,143 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  final EmptyPage emptyPage = const EmptyPage(
+    imagePath: 'assets/icon_empty_cart.png',
+    title: 'Opss! Your Cart is Empty',
+    subTitle: 'Let\'s find your favorite shoes',
+    buttonText: 'Explore Store',
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: pageHeader(),
-      body: pageContent(),
-    );
-  }
-
-  AppBar pageHeader() {
-    return AppBar(
-      backgroundColor: kBackground1,
-      centerTitle: true,
-      elevation: 0,
-      leading: IconButton(
-        icon: const Icon(Icons.chevron_left),
-        onPressed: () => Navigator.pop(context),
-      ),
-      title: Text(
-        'Your cart',
-        style: kTextStylePrimary.copyWith(
-          fontSize: 18,
-          fontWeight: medium,
-        ),
+      body: Column(
+        children: [
+          PageAppBar(
+            'Your cart',
+            leading: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: const Icon(Icons.chevron_left),
+            ),
+          ),
+          pageContent(),
+          // emptyPage,
+          pageFooter(),
+        ],
       ),
     );
   }
 
   Widget pageContent() {
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        color: kBackground3,
+        child: ListView(
+          padding: const EdgeInsets.all(kDefaultMargin),
+          children: const [
+            CartTile(
+              imagePath: 'assets/image_shoes.png',
+              title: 'Terrex Urban Low',
+              price: '143,98',
+              quantity: '2',
+            ),
+            CartTile(
+              imagePath: 'assets/image_shoes.png',
+              title: 'Terrex Urban Low',
+              price: '143,98',
+              quantity: '2',
+            ),
+            CartTile(
+              imagePath: 'assets/image_shoes.png',
+              title: 'Terrex Urban Low',
+              price: '143,98',
+              quantity: '2',
+            ),
+            CartTile(
+              imagePath: 'assets/image_shoes.png',
+              title: 'Terrex Urban Low',
+              price: '143,98',
+              quantity: '2',
+            ),
+            CartTile(
+              imagePath: 'assets/image_shoes.png',
+              title: 'Terrex Urban Low',
+              price: '143,98',
+              quantity: '2',
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget pageFooter() {
     return Container(
+      height: 194,
       width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: kDefaultMargin),
       color: kBackground3,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            'assets/icon_empty_cart.png',
-            width: 80,
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Opss! Your Cart is Empty',
-            style: kTextStylePrimary.copyWith(
-              fontSize: 16,
-              fontWeight: medium,
+          Container(
+            margin: const EdgeInsets.only(
+              bottom: kDefaultMargin,
+              left: kDefaultMargin,
+              right: kDefaultMargin,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Subtotal',
+                  style: kTextStylePrimary,
+                ),
+                Text(
+                  '\$287,96',
+                  style: kTextStylePrice.copyWith(
+                    fontSize: 16,
+                    fontWeight: semibold,
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 12),
-          Text(
-            'Let\'s find your favorite shoes',
-            style: kTextStyleSub,
+          Container(
+            margin: const EdgeInsets.only(bottom: kDefaultMargin),
+            child: const Divider(
+              height: 0,
+              color: kBackground2,
+              thickness: 1,
+            ),
           ),
-          const SizedBox(height: 20),
-          SizedBox(
-            height: 44,
-            child: TextButton(
-              onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                context,
-                MainPage.id,
-                (route) => false,
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
+              padding: const EdgeInsets.symmetric(
+                vertical: 13,
+                horizontal: 20,
               ),
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 24,
-                ),
-                backgroundColor: kColorPrimary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+              decoration: BoxDecoration(
+                color: kColorPrimary,
+                borderRadius: BorderRadius.circular(12),
               ),
-              child: Text(
-                'Explore Store',
-                style: kTextStylePrimary.copyWith(
-                  fontSize: 16,
-                  fontWeight: medium,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Continue to Checkout',
+                    style: kTextStylePrimary.copyWith(
+                      fontSize: 16,
+                      fontWeight: semibold,
+                    ),
+                  ),
+                  const Icon(
+                    Icons.arrow_forward,
+                    color: kTextColorPrimary,
+                  ),
+                ],
               ),
             ),
           ),

@@ -5,17 +5,18 @@ class PageAppBar extends StatelessWidget {
   const PageAppBar(
     this.title, {
     Key? key,
-    this.automaticallyImplyLeading = false,
+    this.leading,
   }) : super(key: key);
 
   final String title;
-  final bool automaticallyImplyLeading;
+  final GestureDetector? leading;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: kBackground1,
       centerTitle: true,
-      automaticallyImplyLeading: automaticallyImplyLeading,
+      leading: leading,
       elevation: 0,
       title: Text(
         title,

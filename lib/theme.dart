@@ -34,6 +34,7 @@ TextStyle kTextStyleSub = GoogleFonts.poppins(color: kTextColorSub);
 TextStyle kTextStylePrice = GoogleFonts.poppins(color: kColorPrice);
 TextStyle kTextStylePurple = GoogleFonts.poppins(color: kColorPrimary);
 TextStyle kTextStyleBlack = GoogleFonts.poppins(color: kColorBlack);
+TextStyle kTextStyleAlert = GoogleFonts.poppins(color: kColorAlert);
 
 // Font Weights
 const FontWeight light = FontWeight.w300;
