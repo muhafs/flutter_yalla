@@ -110,71 +110,127 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ],
             ),
           ),
+          // TODO: Payment Summary
+          Container(
+            margin: const EdgeInsets.only(bottom: kDefaultMargin),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: kBackground4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    'Payment Summary',
+                    style: kTextStylePrimary.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
+                  ),
+                ),
+                const CheckoutSummaryTile(
+                  title: 'Product Quantity',
+                  description: '2 Items',
+                ),
+                const CheckoutSummaryTile(
+                  title: 'Product Price',
+                  description: '\$575.96',
+                ),
+                const CheckoutSummaryTile(
+                  title: 'Shipping',
+                  description: 'Free',
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: const Divider(
+                    height: 0,
+                    thickness: 1,
+                    color: Color(0xFF2E3141),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total',
+                      style: kTextStylePrice.copyWith(fontWeight: semibold),
+                    ),
+                    Text(
+                      '\$575.92',
+                      style: kTextStylePrice.copyWith(fontWeight: semibold),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: kDefaultMargin),
+            child: const Divider(
+              height: 0,
+              thickness: 1,
+              color: kBackground2,
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: kColorPrimary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'Checkout Now',
+                style: kTextStylePrimary.copyWith(
+                  fontSize: 16,
+                  fontWeight: semibold,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-/*
-Row(
-  children: [
-    Column(
-      children: [
-        Image.asset(
-          'assets/icon_store_location.png',
-          width: 40,
-        ),
-        Image.asset(
-          'assets/icon_line.png',
-          height: 30,
-        ),
-        Image.asset(
-          'assets/icon_your_address.png',
-          width: 40,
-        ),
-      ],
-    ),
-    const SizedBox(width: 12),
-    Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(bottom: 1),
-          child: Text(
-            'Store Location',
+class CheckoutSummaryTile extends StatelessWidget {
+  const CheckoutSummaryTile({
+    Key? key,
+    required this.title,
+    required this.description,
+  }) : super(key: key);
+
+  final String title, description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
             style: kTextStyleSecondary.copyWith(
               fontSize: 12,
-              fontWeight: light,
             ),
           ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(bottom: kDefaultMargin),
-          child: Text(
-            'Adidas Core',
+          Text(
+            description,
             style: kTextStylePrimary.copyWith(
               fontWeight: medium,
             ),
           ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(bottom: 1),
-          child: Text(
-            'Your Address',
-            style: kTextStyleSecondary.copyWith(
-              fontSize: 12,
-              fontWeight: light,
-            ),
-          ),
-        ),
-        Text(
-          'Marsemoon',
-          style: kTextStylePrimary.copyWith(
-            fontWeight: medium,
-          ),
-        ),
-      ],
-    ),
-  ],
-),
-*/
+        ],
+      ),
+    );
+  }
+}
