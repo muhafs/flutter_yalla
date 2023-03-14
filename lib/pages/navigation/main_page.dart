@@ -20,6 +20,7 @@ class _MainPageState extends State<MainPage> {
   List pages = const [
     HomePage(),
     ChatPage(),
+    null,
     WishPage(),
     ProfilePage(),
   ];
@@ -94,13 +95,23 @@ class _MainPageState extends State<MainPage> {
               label: 'chat',
             ),
             BottomNavigationBarItem(
+              icon: Visibility(
+                visible: false,
+                child: Container(
+                  width: 20,
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                ),
+              ),
+              label: 'none',
+            ),
+            BottomNavigationBarItem(
               icon: Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 child: Image.asset(
                   'assets/icon_wishlist.png',
                   width: 20,
                   color:
-                      currentIndex == 2 ? kColorPrimary : kColorUnselectedNav,
+                      currentIndex == 3 ? kColorPrimary : kColorUnselectedNav,
                 ),
               ),
               label: 'wishlist',
@@ -112,7 +123,7 @@ class _MainPageState extends State<MainPage> {
                   'assets/icon_profile.png',
                   width: 18,
                   color:
-                      currentIndex == 3 ? kColorPrimary : kColorUnselectedNav,
+                      currentIndex == 4 ? kColorPrimary : kColorUnselectedNav,
                 ),
               ),
               label: 'profile',
