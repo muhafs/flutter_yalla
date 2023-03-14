@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/pages/cart/cart_page.dart';
+import 'package:yalla/pages/cart/checkout_page.dart';
 import 'package:yalla/pages/chat/detail_chat_page.dart';
 import 'package:yalla/pages/home/product_page.dart';
 import 'package:yalla/pages/navigation/main_page.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         EditProfilePage.id: (context) => const EditProfilePage(),
         ProductPage.id: (context) => const ProductPage(),
         CartPage.id: (context) => const CartPage(),
+        CheckoutPage.id: (context) => const CheckoutPage(),
       },
     );
   }

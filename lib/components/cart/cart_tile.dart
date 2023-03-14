@@ -58,25 +58,28 @@ class CartTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset('assets/button_add.png', width: 16),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 2),
-                      child: Text(
-                        quantity,
-                        style: kTextStylePrimary.copyWith(fontWeight: medium),
+                Container(
+                  margin: const EdgeInsets.only(left: 12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/button_add.png', width: 16),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset('assets/button_min.png', width: 16),
-                    ),
-                  ],
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 2),
+                        child: Text(
+                          quantity,
+                          style: kTextStylePrimary.copyWith(fontWeight: medium),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/button_min.png', width: 16),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

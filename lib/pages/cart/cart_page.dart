@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/cart/cart_tile.dart';
 import 'package:yalla/components/empty_page.dart';
 import 'package:yalla/components/page_app_bar.dart';
-import 'package:yalla/pages/navigation/main_page.dart';
+import 'package:yalla/pages/cart/checkout_page.dart';
 import 'package:yalla/theme.dart';
 
 class CartPage extends StatefulWidget {
@@ -25,7 +25,9 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackground3,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           PageAppBar(
             'Your cart',
@@ -44,44 +46,40 @@ class _CartPageState extends State<CartPage> {
 
   Widget pageContent() {
     return Expanded(
-      child: Container(
-        width: double.infinity,
-        color: kBackground3,
-        child: ListView(
-          padding: const EdgeInsets.all(kDefaultMargin),
-          children: const [
-            CartTile(
-              imagePath: 'assets/image_shoes.png',
-              title: 'Terrex Urban Low',
-              price: '143,98',
-              quantity: '2',
-            ),
-            CartTile(
-              imagePath: 'assets/image_shoes.png',
-              title: 'Terrex Urban Low',
-              price: '143,98',
-              quantity: '2',
-            ),
-            CartTile(
-              imagePath: 'assets/image_shoes.png',
-              title: 'Terrex Urban Low',
-              price: '143,98',
-              quantity: '2',
-            ),
-            CartTile(
-              imagePath: 'assets/image_shoes.png',
-              title: 'Terrex Urban Low',
-              price: '143,98',
-              quantity: '2',
-            ),
-            CartTile(
-              imagePath: 'assets/image_shoes.png',
-              title: 'Terrex Urban Low',
-              price: '143,98',
-              quantity: '2',
-            ),
-          ],
-        ),
+      child: ListView(
+        padding: const EdgeInsets.all(kDefaultMargin),
+        children: const [
+          CartTile(
+            imagePath: 'assets/image_shoes.png',
+            title: 'Terrex Urban Low',
+            price: '143,98',
+            quantity: '2',
+          ),
+          CartTile(
+            imagePath: 'assets/image_shoes.png',
+            title: 'Terrex Urban Low',
+            price: '143,98',
+            quantity: '2',
+          ),
+          CartTile(
+            imagePath: 'assets/image_shoes.png',
+            title: 'Terrex Urban Low',
+            price: '143,98',
+            quantity: '2',
+          ),
+          CartTile(
+            imagePath: 'assets/image_shoes.png',
+            title: 'Terrex Urban Low',
+            price: '143,98',
+            quantity: '2',
+          ),
+          CartTile(
+            imagePath: 'assets/image_shoes.png',
+            title: 'Terrex Urban Low',
+            price: '143,98',
+            quantity: '2',
+          ),
+        ],
       ),
     );
   }
@@ -126,7 +124,12 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                CheckoutPage.id,
+              );
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: kDefaultMargin),
               padding: const EdgeInsets.symmetric(
