@@ -30,6 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
       elevation: 0,
       automaticallyImplyLeading: false,
       flexibleSpace: SafeArea(
+        bottom: false,
         child: Padding(
           padding: const EdgeInsets.all(kDefaultMargin),
           child: Row(

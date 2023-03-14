@@ -34,6 +34,7 @@ class _MainPageState extends State<MainPage> {
       //
       bottomNavigationBar: bottomNavigationBar(),
       //
+      extendBody: true,
       body: pages[currentIndex],
     );
   }
@@ -52,7 +53,8 @@ class _MainPageState extends State<MainPage> {
       borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
       //
       child: BottomAppBar(
-        color: kBackground4,
+        // color: kBackground4,
+        color: kColorTransparent,
         shape: const CircularNotchedRectangle(),
         clipBehavior: Clip.antiAlias,
         notchMargin: 10,

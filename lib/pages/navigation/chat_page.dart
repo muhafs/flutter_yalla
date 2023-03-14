@@ -53,6 +53,16 @@ class _ChatPageState extends State<ChatPage> {
                   'Good night, This item is on delivery state to your address',
               date: 'Now',
             ),
+            ChatTile(
+              onTap: () {
+                Navigator.pushNamed(context, DetailChatPage.id);
+              },
+              imageName: 'image_shop_logo',
+              title: 'Shoe Store',
+              lastChat:
+                  'Good night, This item is on delivery state to your address',
+              date: 'Now',
+            ),
           ],
         ),
       ),
