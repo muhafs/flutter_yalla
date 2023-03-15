@@ -26,6 +26,7 @@ const Color kBackground6 = Color(0xFF2B2844);
 const Color kTextColorPrimary = Color(0xFFF1F0F2);
 const Color kTextColorSecondary = Color(0xFF999999);
 const Color kTextColorSub = Color(0xFF504F5E);
+const Color kTextColorDisable = Color(0xFFB7B6BF);
 
 // Text Styles
 TextStyle kTextStylePrimary = GoogleFonts.poppins(color: kTextColorPrimary);
@@ -35,6 +36,7 @@ TextStyle kTextStylePrice = GoogleFonts.poppins(color: kColorPrice);
 TextStyle kTextStylePurple = GoogleFonts.poppins(color: kColorPrimary);
 TextStyle kTextStyleBlack = GoogleFonts.poppins(color: kColorBlack);
 TextStyle kTextStyleAlert = GoogleFonts.poppins(color: kColorAlert);
+TextStyle kTextStyleDisable = GoogleFonts.poppins(color: kTextColorDisable);
 
 // Font Weights
 const FontWeight light = FontWeight.w300;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/components/cart/checkout_item_tile.dart';
 import 'package:yalla/components/cart/checkout_location_tile.dart';
 import 'package:yalla/components/page_app_bar.dart';
+import 'package:yalla/pages/cart/checkout_success_page.dart';
 import 'package:yalla/theme.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -179,7 +180,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
             width: double.infinity,
             height: 50,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  CheckoutSuccessPage.id,
+                  (route) => false,
+                );
+              },
               style: TextButton.styleFrom(
                 backgroundColor: kColorPrimary,
                 shape: RoundedRectangleBorder(
