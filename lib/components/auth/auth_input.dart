@@ -8,12 +8,14 @@ class AuthInput extends StatelessWidget {
     required this.isPassword,
     required this.icon,
     required this.hint,
+    this.controller,
   }) : super(key: key);
 
   final String title;
   final bool isPassword;
   final String icon;
   final String hint;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class AuthInput extends StatelessWidget {
                 const SizedBox(width: 16),
                 Expanded(
                   child: TextFormField(
+                    controller: controller,
                     style: kTextStylePrimary,
                     obscureText: isPassword,
                     decoration: InputDecoration.collapsed(

@@ -40,7 +40,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
       child: ListView(
         padding: const EdgeInsets.all(kDefaultMargin),
         children: [
-          // TODO: List Item
           Container(
             margin: const EdgeInsets.only(bottom: kDefaultMargin),
             child: Column(
@@ -71,7 +70,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ],
             ),
           ),
-          // TODO: Address Details
           Container(
             margin: const EdgeInsets.only(bottom: kDefaultMargin),
             padding: const EdgeInsets.all(20),
@@ -111,7 +109,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ],
             ),
           ),
-          // TODO: Payment Summary
           Container(
             margin: const EdgeInsets.only(bottom: kDefaultMargin),
             padding: const EdgeInsets.all(20),

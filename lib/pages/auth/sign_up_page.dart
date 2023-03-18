@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yalla/providers/auth_provider.dart';
 import 'package:yalla/theme.dart';
 import 'package:yalla/components/auth/auth_button.dart';
 import 'package:yalla/components/auth/auth_footer.dart';
@@ -16,8 +18,15 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController usernameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
     return Scaffold(
       backgroundColor: kBackground1,
       resizeToAvoidBottomInset: false,
@@ -28,48 +37,62 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const AuthHeader(
-                  title: 'Sign Up', subTitle: 'Register and Happy Shopping'),
+                title: 'Sign Up',
+                subTitle: 'Register and Happy Shopping',
+              ),
               //
-              const AuthInput(
+              AuthInput(
                 title: 'Full Name',
                 hint: 'Enter your full name',
                 icon: 'name',
                 isPassword: false,
+                controller: nameController,
               ),
               //
               const SizedBox(height: 20),
               //
-              const AuthInput(
+              AuthInput(
                 title: 'Username',
                 hint: 'Enter your username',
                 icon: 'username',
                 isPassword: false,
+                controller: usernameController,
               ),
               //
               const SizedBox(height: 20),
               //
-              const AuthInput(
+              AuthInput(
                 title: 'Email Address',
                 hint: 'Enter your email address',
                 icon: 'email',
                 isPassword: false,
+                controller: emailController,
               ),
               //
               const SizedBox(height: 20),
               //
-              const AuthInput(
+              AuthInput(
                 title: 'Password',
                 hint: 'Enter your password',
                 icon: 'password',
                 isPassword: true,
+                controller: passwordController,
               ),
               //
               const SizedBox(height: 30),
               //
               AuthButton(
                 text: 'Sign Up',
-                onPressed: () =>
-                    Navigator.pushReplacementNamed(context, MainPage.id),
+                onPressed: () async {
+                  if (await authProvider.register(
+                    name: nameController.text,
+                    username: usernameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  )) {
+                    Navigator.pushReplacementNamed(context, MainPage.id);
+                  }
+                },
               ),
               //
               const Spacer(),
