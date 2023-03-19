@@ -3,9 +3,12 @@ import 'package:yalla/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  // final String baseURL = 'https://yalla-backend.test/api';
-  final String baseURL = 'http://192.168.1.103:8000/api';
+  //! BASE URL
+  // final String baseURL = 'https://yalla-backend.test/api'; // connect to Server Backend (not exist yet)
+  final String baseURL =
+      'http://192.168.1.103:8000/api'; // connect to Local Backend
 
+  //! REGISTER
   Future<UserModel> register({
     String? name,
     String? username,
@@ -37,4 +40,8 @@ class AuthService {
       throw Exception('Register Faild');
     }
   }
+
+  //! LOGIN
+
+  //! LOGOUT
 }

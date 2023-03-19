@@ -23,6 +23,8 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
 
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
@@ -82,8 +84,11 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 30),
               //
               AuthButton(
+                isLoading: _isLoading,
                 text: 'Sign Up',
                 onPressed: () async {
+                  setState(() => _isLoading = true);
+
                   if (await authProvider.register(
                     name: nameController.text,
                     username: usernameController.text,
@@ -91,7 +96,20 @@ class _SignUpPageState extends State<SignUpPage> {
                     password: passwordController.text,
                   )) {
                     Navigator.pushReplacementNamed(context, MainPage.id);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: kColorAlert,
+                        content: Text(
+                          'Oops, Register Failed!',
+                          style: kTextStylePrimary,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
                   }
+
+                  setState(() => _isLoading = false);
                 },
               ),
               //
