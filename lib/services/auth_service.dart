@@ -42,6 +42,33 @@ class AuthService {
   }
 
   //! LOGIN
+  Future<UserModel> login({
+    String? email,
+    String? password,
+  }) async {
+    var response = await http.post(
+      Uri.parse('$baseURL/login'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    // ignore: avoid_print
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body)['data'];
+
+      UserModel user = UserModel.fromJson(data['user']);
+      user.token = 'Bearer ${data["access_token"]}';
+
+      return user;
+    } else {
+      throw Exception('Login Faild');
+    }
+  }
 
   //! LOGOUT
 }

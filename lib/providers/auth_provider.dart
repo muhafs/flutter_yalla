@@ -12,6 +12,7 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  //! REGISTER
   Future<bool> register({
     required String name,
     required String username,
@@ -22,6 +23,28 @@ class AuthProvider with ChangeNotifier {
       UserModel user = await AuthService().register(
         name: name,
         username: username,
+        email: email,
+        password: password,
+      );
+
+      _user = user;
+
+      return true;
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+
+      return false;
+    }
+  }
+
+  //! LOGIN
+  Future<bool> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      UserModel user = await AuthService().login(
         email: email,
         password: password,
       );

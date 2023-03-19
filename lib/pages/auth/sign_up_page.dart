@@ -47,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 title: 'Full Name',
                 hint: 'Enter your full name',
                 icon: 'name',
-                isPassword: false,
                 controller: nameController,
               ),
               //
@@ -57,7 +56,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 title: 'Username',
                 hint: 'Enter your username',
                 icon: 'username',
-                isPassword: false,
                 controller: usernameController,
               ),
               //
@@ -67,7 +65,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 title: 'Email Address',
                 hint: 'Enter your email address',
                 icon: 'email',
-                isPassword: false,
                 controller: emailController,
               ),
               //

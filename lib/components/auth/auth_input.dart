@@ -5,7 +5,7 @@ class AuthInput extends StatelessWidget {
   const AuthInput({
     Key? key,
     required this.title,
-    required this.isPassword,
+    this.isPassword = false,
     required this.icon,
     required this.hint,
     this.controller,
