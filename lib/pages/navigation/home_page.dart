@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yalla/components/home/category_card.dart';
 import 'package:yalla/components/home/product_card.dart';
 import 'package:yalla/components/home/product_tile.dart';
 import 'package:yalla/components/home/section_title.dart';
+import 'package:yalla/models/user_model.dart';
 import 'package:yalla/pages/home/product_page.dart';
+import 'package:yalla/providers/auth_provider.dart';
 import 'package:yalla/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,11 +19,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     return SafeArea(
       bottom: false,
       child: ListView(
         children: [
-          pageHeader(),
+          pageHeader(user),
           categorySection(),
           popularProducts(),
           newArrivals(),
@@ -29,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget pageHeader() {
+  Widget pageHeader(UserModel user) {
     return Padding(
       padding: const EdgeInsets.all(kDefaultMargin),
       child: Row(
@@ -39,14 +45,14 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hello, Muhamad',
+                  'Hello, ${(user.name).split(' ')[0]}',
                   style: kTextStylePrimary.copyWith(
                     fontSize: 24,
                     fontWeight: semibold,
                   ),
                 ),
                 Text(
-                  '@muhamadhaspin',
+                  '@${user.username}',
                   style: kTextStyleSub.copyWith(
                     fontSize: 16,
                   ),
@@ -54,10 +60,11 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          const CircleAvatar(
+          CircleAvatar(
+            backgroundColor: kTextColorPrimary,
             radius: 27,
-            backgroundImage: AssetImage('assets/image_profile.png'),
-          )
+            foregroundImage: NetworkImage(user.profilePhotoURL),
+          ),
         ],
       ),
     );

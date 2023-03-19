@@ -1,17 +1,17 @@
 class UserModel {
-  int? id;
-  String? name;
-  String? email;
-  String? username;
-  String? profilePhotoURL;
+  late int id;
+  late String name;
+  late String email;
+  late String username;
+  late String profilePhotoURL;
   String? token;
 
   UserModel({
-    this.id,
-    this.name,
-    this.email,
-    this.username,
-    this.profilePhotoURL,
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.username,
+    required this.profilePhotoURL,
     this.token,
   });
 

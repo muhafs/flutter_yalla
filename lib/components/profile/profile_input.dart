@@ -6,10 +6,14 @@ class ProfileInput extends StatelessWidget {
     super.key,
     required this.title,
     required this.hintText,
+    this.controller,
+    this.isUsername = false,
   });
 
   final String title;
   final String hintText;
+  final TextEditingController? controller;
+  final bool isUsername;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,11 @@ class ProfileInput extends StatelessWidget {
             style: kTextStyleSecondary.copyWith(fontSize: 13),
           ),
           TextFormField(
+            controller: controller,
             style: kTextStylePrimary,
             decoration: InputDecoration(
+              prefixText: isUsername ? '@' : null,
+              prefixStyle: isUsername ? kTextStyleSub : null,
               hintText: hintText,
               hintStyle: kTextStyleSub,
               enabledBorder: const UnderlineInputBorder(

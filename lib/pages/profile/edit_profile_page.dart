@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yalla/components/profile/profile_input.dart';
+import 'package:yalla/models/user_model.dart';
+import 'package:yalla/providers/auth_provider.dart';
 import 'package:yalla/theme.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -14,10 +17,20 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+    TextEditingController nameController =
+        TextEditingController(text: user.name);
+    TextEditingController usernameController =
+        TextEditingController(text: user.username);
+    TextEditingController emailController =
+        TextEditingController(text: user.email);
+
     return Scaffold(
       backgroundColor: kBackground3,
       appBar: pageHeader(),
-      body: pageContent(),
+      body: pageContent(
+          user, nameController, usernameController, emailController),
     );
   }
 
@@ -59,7 +72,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-  Widget pageContent() {
+  Widget pageContent(
+      UserModel user, nameController, usernameController, emailController) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(kDefaultMargin),
@@ -71,14 +85,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
               margin: const EdgeInsets.only(bottom: kDefaultMargin),
               child: CircleAvatar(
                 radius: 50,
-                child: Image.asset('assets/image_profile.png'),
+                backgroundColor: kTextColorPrimary,
+                backgroundImage: NetworkImage(user.profilePhotoURL),
               ),
             ),
-            const ProfileInput(title: 'Name', hintText: 'Enter your name'),
-            const ProfileInput(
-                title: 'Username', hintText: 'Enter your username'),
-            const ProfileInput(
-                title: 'Email Address', hintText: 'Enter your email address'),
+            ProfileInput(
+              title: 'Name',
+              hintText: 'Enter your name',
+              controller: nameController,
+            ),
+            ProfileInput(
+              isUsername: true,
+              title: 'Username',
+              hintText: 'Enter your username',
+              controller: usernameController,
+            ),
+            ProfileInput(
+              title: 'Email Address',
+              hintText: 'Enter your email address',
+              controller: emailController,
+            ),
           ],
         ),
       ),

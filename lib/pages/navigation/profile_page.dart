@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yalla/components/profile/menu_container.dart';
 import 'package:yalla/components/profile/menu_tile.dart';
+import 'package:yalla/models/user_model.dart';
 import 'package:yalla/pages/auth/sign_in_page.dart';
 import 'package:yalla/pages/profile/edit_profile_page.dart';
+import 'package:yalla/providers/auth_provider.dart';
 import 'package:yalla/theme.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,16 +18,19 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        pageHeader(),
+        pageHeader(user),
         pageContent(),
       ],
     );
   }
 
-  Widget pageHeader() {
+  Widget pageHeader(UserModel user) {
     return AppBar(
       backgroundColor: kBackground1,
       elevation: 0,
@@ -36,8 +42,9 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Row(
             children: [
               CircleAvatar(
+                backgroundColor: kTextColorPrimary,
                 radius: 32,
-                child: Image.asset('assets/image_profile.png'),
+                backgroundImage: NetworkImage(user.profilePhotoURL),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -46,14 +53,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hello Muhamad',
+                      'Hello ${(user.name).split(' ')[0]}',
                       style: kTextStylePrimary.copyWith(
                         fontWeight: semibold,
                         fontSize: 24,
                       ),
                     ),
                     Text(
-                      '@muhamadhaspin',
+                      '@${user.username}',
                       style: kTextStyleSub.copyWith(fontSize: 16),
                     ),
                   ],
