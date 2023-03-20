@@ -11,6 +11,7 @@ import 'package:yalla/pages/auth/sign_up_page.dart';
 import 'package:yalla/pages/profile/edit_profile_page.dart';
 import 'package:yalla/pages/splash_page.dart';
 import 'package:yalla/providers/auth_provider.dart';
+import 'package:yalla/providers/product_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProductProvider(),
         ),
       ],
       child: MaterialApp(

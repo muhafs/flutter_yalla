@@ -1,7 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yalla/pages/auth/sign_in_page.dart';
+import 'package:yalla/providers/product_provider.dart';
 import 'package:yalla/theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,11 +16,16 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(
-      const Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, SignInPage.id),
-    );
+    getInit();
+
     super.initState();
+  }
+
+  getInit() async {
+    await Provider.of<ProductProvider>(context, listen: false).getProducts();
+
+    if (!mounted) return;
+    Navigator.pushReplacementNamed(context, SignInPage.id);
   }
 
   @override
