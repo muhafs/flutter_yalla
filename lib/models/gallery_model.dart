@@ -7,10 +7,10 @@ class GalleryModel {
     required this.url,
   });
 
-  GalleryModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    url = json['url'];
-  }
+  factory GalleryModel.fromJson(Map<String, dynamic> json) => GalleryModel(
+        id: json['id'],
+        url: json['url'],
+      );
 
   Map<String, dynamic> toJson() {
     return {

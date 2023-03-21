@@ -32,8 +32,10 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
 
-      UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer ${data["access_token"]}';
+      var userData = data['user'];
+      userData['token'] = 'Bearer ${data["access_token"]}';
+
+      UserModel user = UserModel.fromJson(userData);
 
       return user;
     } else {
@@ -61,8 +63,10 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
 
-      UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer ${data["access_token"]}';
+      var userData = data['user'];
+      userData['token'] = 'Bearer ${data["access_token"]}';
+
+      UserModel user = UserModel.fromJson(userData);
 
       return user;
     } else {

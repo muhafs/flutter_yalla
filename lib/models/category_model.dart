@@ -7,10 +7,10 @@ class CategoryModel {
     required this.name,
   });
 
-  CategoryModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-  }
+  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
+        id: json['id'],
+        name: json['name'],
+      );
 
   Map<String, dynamic> toJson() {
     return {
