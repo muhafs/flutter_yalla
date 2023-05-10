@@ -17,20 +17,29 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
+    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    // UserModel user = authProvider.user;
+
+    // TextEditingController nameController =
+    //     TextEditingController(text: user.name);
+    // TextEditingController usernameController =
+    //     TextEditingController(text: user.username);
+    // TextEditingController emailController =
+    //     TextEditingController(text: user.email);
+
     TextEditingController nameController =
-        TextEditingController(text: user.name);
+        TextEditingController(text: 'Muhamad Haspin');
     TextEditingController usernameController =
-        TextEditingController(text: user.username);
+        TextEditingController(text: 'muhamadhaspin');
     TextEditingController emailController =
-        TextEditingController(text: user.email);
+        TextEditingController(text: 'muhamadhaspin@gmail.com');
 
     return Scaffold(
       backgroundColor: kBackground3,
       appBar: pageHeader(),
-      body: pageContent(
-          user, nameController, usernameController, emailController),
+      // body: pageContent(
+      //     user, nameController, usernameController, emailController),
+      body: pageContent(nameController, usernameController, emailController),
     );
   }
 
@@ -72,8 +81,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-  Widget pageContent(
-      UserModel user, nameController, usernameController, emailController) {
+  // Widget pageContent(
+  //     UserModel user, nameController, usernameController, emailController) {
+  Widget pageContent(nameController, usernameController, emailController) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(kDefaultMargin),
@@ -83,10 +93,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: kDefaultMargin),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 radius: 50,
                 backgroundColor: kTextColorPrimary,
-                backgroundImage: NetworkImage(user.profilePhotoURL),
+                // backgroundImage: NetworkImage(user.profilePhotoURL),
+                backgroundImage: AssetImage('assets/image_profile.png'),
               ),
             ),
             ProfileInput(

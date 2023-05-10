@@ -61,29 +61,31 @@ class _SignInPageState extends State<SignInPage> {
               AuthButton(
                 isLoading: _isLoading,
                 text: 'Sign In',
-                onPressed: () async {
-                  setState(() => _isLoading = true);
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, MainPage.id),
+                // onPressed: () async {
+                //   setState(() => _isLoading = true);
 
-                  if (await authProvider.login(
-                    email: emailController.text,
-                    password: passwordController.text,
-                  )) {
-                    Navigator.pushReplacementNamed(context, MainPage.id);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: kColorAlert,
-                        content: Text(
-                          'Oops, Login Failed!',
-                          style: kTextStylePrimary,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    );
-                  }
+                //   if (await authProvider.login(
+                //     email: emailController.text,
+                //     password: passwordController.text,
+                //   )) {
+                //     Navigator.pushReplacementNamed(context, MainPage.id);
+                //   } else {
+                //     ScaffoldMessenger.of(context).showSnackBar(
+                //       SnackBar(
+                //         backgroundColor: kColorAlert,
+                //         content: Text(
+                //           'Oops, Login Failed!',
+                //           style: kTextStylePrimary,
+                //           textAlign: TextAlign.center,
+                //         ),
+                //       ),
+                //     );
+                //   }
 
-                  setState(() => _isLoading = false);
-                },
+                //   setState(() => _isLoading = false);
+                // },
               ),
               //
               const Spacer(),

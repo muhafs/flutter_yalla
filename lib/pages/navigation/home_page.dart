@@ -19,14 +19,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
+    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    // UserModel user = authProvider.user;
 
     return SafeArea(
       bottom: false,
       child: ListView(
         children: [
-          pageHeader(user),
+          // pageHeader(user),
+          pageHeader(),
           categorySection(),
           popularProducts(),
           newArrivals(),
@@ -35,7 +36,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget pageHeader(UserModel user) {
+  // Widget pageHeader(UserModel user) {
+  Widget pageHeader() {
     return Padding(
       padding: const EdgeInsets.all(kDefaultMargin),
       child: Row(
@@ -45,14 +47,16 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hello, ${(user.name).split(' ')[0]}',
+                  // 'Hello, ${(user.name).split(' ')[0]}',
+                  'Hello, Muhamad',
                   style: kTextStylePrimary.copyWith(
                     fontSize: 24,
                     fontWeight: semibold,
                   ),
                 ),
                 Text(
-                  '@${user.username}',
+                  // '@${user.username}',
+                  '@muhamadhaspin',
                   style: kTextStyleSub.copyWith(
                     fontSize: 16,
                   ),
@@ -60,10 +64,11 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: kTextColorPrimary,
             radius: 27,
-            foregroundImage: NetworkImage(user.profilePhotoURL),
+            // foregroundImage: NetworkImage(user.profilePhotoURL),
+            foregroundImage: AssetImage('assets/image_profile.png'),
           ),
         ],
       ),

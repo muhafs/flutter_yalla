@@ -18,19 +18,21 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
+    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    // UserModel user = authProvider.user;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        pageHeader(user),
+        // pageHeader(user),
+        pageHeader(),
         pageContent(),
       ],
     );
   }
 
-  Widget pageHeader(UserModel user) {
+  // Widget pageHeader(UserModel user) {
+  Widget pageHeader() {
     return AppBar(
       backgroundColor: kBackground1,
       elevation: 0,
@@ -41,10 +43,11 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.all(kDefaultMargin),
           child: Row(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundColor: kTextColorPrimary,
                 radius: 32,
-                backgroundImage: NetworkImage(user.profilePhotoURL),
+                // backgroundImage: NetworkImage(user.profilePhotoURL),
+                backgroundImage: AssetImage('assets/image_profile.png'),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -53,14 +56,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hello ${(user.name).split(' ')[0]}',
+                      // 'Hello ${(user.name).split(' ')[0]}',
+                      'Hello Muhamad',
                       style: kTextStylePrimary.copyWith(
                         fontWeight: semibold,
                         fontSize: 24,
                       ),
                     ),
                     Text(
-                      '@${user.username}',
+                      // '@${user.username}',
+                      '@muhamadhaspin',
                       style: kTextStyleSub.copyWith(fontSize: 16),
                     ),
                   ],
